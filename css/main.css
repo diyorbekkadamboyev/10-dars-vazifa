@@ -1,0 +1,15 @@
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: rgba(0, 255, 136, 0.372);
+  font-family: sans-serif;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

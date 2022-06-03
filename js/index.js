@@ -1,36 +1,38 @@
 const elForm = document.querySelector(".form");
-const elFormInputTodo = document.querySelector(".form-todo");
-const elFormInputAfter = document.querySelector(".form-after");
-const elList = document.querySelector(".hero-list");
+const elInputTodo = document.querySelector(".input-todo");
+const elInputAfter = document.querySelector(".input-after");
+const elList = document.querySelector(".list");
 
-let todos = [];
+const todos = [];
+// let counter = 0
 
 elForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
-  const inputTodo = elFormInputTodo.value;
-  const inputAfter = elFormInputAfter.value;
+  const userValue = elInputTodo.value;
+  const todoValue = elInputAfter.value;
 
   const todo = {
-    enterTodo: inputTodo,
-    enterAfter: inputAfter,
+    name: userValue,
+    after: todoValue,
   };
 
   todos.push(todo);
 
-  elFormInputTodo.value = null;
-  elFormInputAfter.value = null;
+  elInputTodo.value = null;
+  elInputAfter.value = null;
 
   elList.innerHTML = null;
 
   for (let item of todos) {
-    const newLiTodo = document.createElement("li");
-    const newLiAfter = document.createElement("li");
+    const newLi = document.createElement("li");
 
-    elList.textContent = item.enterTodo;
-    elList.textContent = item.enterAfter;
+    newLi.textContent = `${item.name} : (${item.after})`;
+    elList.appendChild(newLi);
 
-    elList.appendChild(newLiTodo);
-    elList.appendChild(newLiAfter);
+    newLi.style.listStyle = "none";
+    newLi.style.marginTop = "10px";
+    newLi.style.fontFamily = "sans-serif";
+    newLi.style.fontSize = "30px";
   }
 });
